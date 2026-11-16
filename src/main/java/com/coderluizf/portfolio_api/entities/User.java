@@ -1,6 +1,8 @@
 package com.coderluizf.portfolio_api.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,6 +23,8 @@ public class User implements Serializable {
 	private String phone;
 	private String password;
 	
+	private List<Order> orders = new ArrayList<>();
+	
 	public User() {
 		
 	}
@@ -31,6 +35,10 @@ public class User implements Serializable {
 		this.email = email;
 		this.phone = phone;
 		this.password = password;
+	}
+	
+	public List<Order> getOrders() {
+		return orders;
 	}
 
 	public Long getId() {
@@ -97,8 +105,4 @@ public class User implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
 }
